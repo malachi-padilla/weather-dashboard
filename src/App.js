@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import publicIp from 'public-ip';
+import { getCurrentWeather, getFiveDayForecast } from './api/weatherData';
+import { getCityAndRegion } from './api/ipAddressData';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const [currentWeather, setCurrentWeather] = useState({});
+  const [weatherData, setWeatherData] = useState({});
+  const [location, setLocation] = useState('');
+  useEffect(() => {
+    const getAllData = async () => {
+      let ip = await publicIp.v4();
+      const cityAndRegion = await getCityAndRegion(ip);
+      const { city } = cityAndRegion;
+      setLocation(city);
+      const currentWeather = await getCurrentWeather(city);
+      setCurrentWeather(currentWeather.data);
+      const weatherData = await getFiveDayForecast(city);
+      setWeatherData(weatherData.data);
+    };
+    getAllData();
+  }, []);
+  return <div></div>;
+};
 
 export default App;
