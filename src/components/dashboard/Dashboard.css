@@ -1,0 +1,44 @@
+.dashboardContainer {
+  height: 100vh;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: transparent;
+  padding-bottom: 6rem;
+  color: #fff;
+}
+.infoBox {
+  height: 25%;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 2rem;
+  align-items: center;
+  font-size: 48px;
+  font-weight: 300;
+}
+
+.info1 {
+  font-size: 144px;
+}
+.info2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.subInfo {
+  font-size: 20px;
+}
+
+.info3 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.weatherIcon {
+  height: 20px;
+  width: 20px;
+}
