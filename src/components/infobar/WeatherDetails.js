@@ -25,8 +25,16 @@ const WeatherDetails = ({ currentWeather }) => {
           </h4>
         </div>
         <div className='detailBar'>
+          <h4 className='condition'>Wind</h4>
+          <h4 className='value'>
+            {currentWeather ? currentWeather.wind.speed + ' mph' : '10 mph'}
+          </h4>
+        </div>
+        <div className='detailBar'>
           <h4 className='condition'>Humidity</h4>
-          <h4 className='value'></h4>
+          <h4 className='value'>
+            {currentWeather ? currentWeather.main.humidity + '%' : '10 %'}
+          </h4>
         </div>
       </div>
     </div>

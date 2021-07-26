@@ -3,9 +3,9 @@ import { getDate } from '../../util/utilFunctions';
 import './Dashboard.css';
 
 const Dashboard = ({ currentWeather, loading }) => {
-  console.log(currentWeather);
   const weatherIcon = currentWeather ? currentWeather.weather[0].icon : null;
-  console.log(weatherIcon);
+
+  const condition = currentWeather && currentWeather.weather[0].main;
 
   return (
     <div className='dashboardContainer'>
@@ -17,14 +17,14 @@ const Dashboard = ({ currentWeather, loading }) => {
             <span className='subInfo'>{getDate()}</span>
           </div>
           <div className='info3'>
-            <i class='fas fa-sun'></i>
-            <span className='subInfo'>Sunny</span>
+            <i class='far fa-moon' style={{ opacity: 0.6 }}></i>
+            <span className='subInfo'>Clear</span>
           </div>
         </div>
       ) : (
         <div className='infoBox'>
           <div className='info1'>
-            {Number.parseInt(currentWeather.mains.temp)}
+            {Number.parseInt(currentWeather.main.temp)}
             &#176;
           </div>
           <div className='info2'>
@@ -32,10 +32,24 @@ const Dashboard = ({ currentWeather, loading }) => {
             <span className='subInfo'>{getDate()}</span>
           </div>
           <div className='info3'>
-            <image
-              className='weatherIcon'
-              src={`http://openweathermap.org/img/w/${weatherIcon}.png`}></image>
-            <span className='subInfo'>{currentWeather.weather[0].main}</span>
+            {condition === 'Thunderstorm' ? (
+              <i class='fas-fa-bolt' style={{ opacity: 0.6 }}></i>
+            ) : condition === 'Drizzle' ? (
+              <i class='fas fa-cloud-sun-rain' style={{ opacity: 0.6 }}></i>
+            ) : condition === 'Rain' ? (
+              <i
+                class='fas fa-cloud-showers-heavy'
+                style={{ opacity: 0.6 }}></i>
+            ) : condition === 'Snow' ? (
+              <i class='fas fa-snowflake' style={{ opacity: 0.6 }}></i>
+            ) : condition === 'Haze' ? (
+              <i class='fas fa-smog' style={{ opacity: 0.6 }}></i>
+            ) : condition === 'Clouds' ? (
+              <i class='fas fa-cloud' style={{ opacity: 0.6 }}></i>
+            ) : (
+              <i class='far fa-sun' style={{ opacity: 0.6 }}></i>
+            )}
+            <span className='subInfo'>{condition}</span>
           </div>
         </div>
       )}

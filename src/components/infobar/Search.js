@@ -1,30 +1,57 @@
 import React, { useState } from 'react';
 import './Search.css';
+import PlacesAutocomplete from 'react-places-autocomplete';
 
-const Search = ({ setLocation }) => {
+const Search = ({ setLocation, location }) => {
   const [textIput, setTextinput] = useState('');
 
-  const handleSearch = () => {
-    setLocation(textIput);
-    setTextinput('');
+  const handleSelect = (value) => {
+    setTextinput(value);
+    setLocation(value);
   };
+
+  const searchOptions = {
+    types: ['(cities)'],
+  };
+
+  const renderFunc = ({
+    getInputProps,
+    getSuggestionItemProps,
+    suggestions,
+    loading,
+  }) => (
+    <div className='inputContainer'>
+      <input
+        {...getInputProps({
+          placeholder: 'Another Location',
+          className: 'searchInput',
+        })}
+      />
+      <div className='suggestionsContainer'>
+        {loading && '...Loading'}
+        {suggestions.map((suggestion) => {
+          return (
+            <span className='suggestion' key={suggestion.placeId}>
+              {suggestion.description}
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  );
 
   return (
     <div className='searchContainer'>
       <div className='searchBar'>
-        <div className='inputContainer'>
-          <input
-            value={textIput}
-            className='searchInput'
-            placeholder='Another Location'
-            type='text'
-            onChange={(e) => setTextinput(e.target.value)}></input>
-        </div>
+        <PlacesAutocomplete
+          value={textIput}
+          onChange={setTextinput}
+          onSelect={handleSelect}
+          searchOptions={searchOptions}>
+          {renderFunc}
+        </PlacesAutocomplete>
         <div className='buttonContainer'>
-          <button
-            className='searchBtn'
-            onClick={handleSearch}
-            onKeyDown={(e) => (e.key === 'Enter' ? handleSearch() : null)}>
+          <button className='searchBtn'>
             <i class='fas fa-search'></i>
           </button>
         </div>
