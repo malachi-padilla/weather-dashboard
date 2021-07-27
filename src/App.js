@@ -38,20 +38,23 @@ const App = () => {
   useEffect(() => {
     if (currentWeather) {
       if (isDay) {
-        getImage(currentWeather.weather[0].main + ',day').then((response) => {
-          setUrl(response.full);
+        getImage(currentWeather.weather[0].main).then((response) => {
+          setUrl(response);
         });
-      } else
-        getImage(currentWeather.weather[0].main + ',night').then((response) => {
-          setUrl(response.full);
-        });
+      } else if (!isDay) {
+        getImage(currentWeather.weather[0].main + ', night').then(
+          (response) => {
+            setUrl(response);
+          }
+        );
+      }
     }
   }, [currentWeather]);
 
   return (
     <div className='mainContainer'>
       <img className='backgroundImage' src={url} alt='background' />
-      <Dashboard currentWeather={currentWeather} />
+      <Dashboard currentWeather={currentWeather} isDay={isDay} />
       <InfoBar
         setLocation={setLocation}
         currentWeather={currentWeather}
