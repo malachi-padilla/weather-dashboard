@@ -35,6 +35,10 @@
   cursor: pointer;
 }
 
+.lastVisited {
+  color: #fff;
+}
+
 .searchInput {
   height: 25%;
   width: 80%;

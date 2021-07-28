@@ -1,7 +1,7 @@
 import React from 'react';
 import './WeatherDetails.css';
 
-const WeatherDetails = ({ currentWeather }) => {
+const WeatherDetails = ({ currentWeather, setForeCastModalOpen }) => {
   return (
     <div className='detailsContainer'>
       <h4 className='title'>Weather Details</h4>
@@ -36,6 +36,15 @@ const WeatherDetails = ({ currentWeather }) => {
             {currentWeather ? currentWeather.main.humidity + '%' : '10 %'}
           </h4>
         </div>
+        <h4
+          style={{
+            cursor: 'pointer',
+            textDecoration: 'underline',
+            color: '#4cc9f0',
+          }}
+          onClick={() => setForeCastModalOpen((current) => !current)}>
+          Future forecast
+        </h4>
       </div>
     </div>
   );

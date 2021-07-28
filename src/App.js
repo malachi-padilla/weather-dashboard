@@ -8,6 +8,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import day from './assets/day.jpg';
 import night from './assets/night.jpg';
 import { getImage } from './api/imageData';
+import ForecastModal from './components/forecastModal/ForecastModal';
 
 const currentTime = new Date().getHours();
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
   const [location, setLocation] = useState('');
   const [isDay, setIsDay] = useState(null);
   const [url, setUrl] = useState('');
+  const [foreCastModalOpen, setForeCastModalOpen] = useState(false);
   useEffect(() => {
     const getAllData = async () => {
       let ip = await publicIp.v4();
@@ -38,7 +40,7 @@ const App = () => {
   useEffect(() => {
     if (currentWeather) {
       if (isDay) {
-        getImage(currentWeather.weather[0].main).then((response) => {
+        getImage(currentWeather.weather[0].main + ', day').then((response) => {
           setUrl(response);
         });
       } else if (!isDay) {
@@ -59,7 +61,14 @@ const App = () => {
         setLocation={setLocation}
         currentWeather={currentWeather}
         location={location}
+        setForeCastModalOpen={setForeCastModalOpen}
       />
+      {foreCastModalOpen && (
+        <ForecastModal
+          setForeCastModalOpen={setForeCastModalOpen}
+          location={location}
+        />
+      )}
     </div>
   );
 };

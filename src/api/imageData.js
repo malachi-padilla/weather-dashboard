@@ -9,7 +9,6 @@ export async function getImage(condition) {
       )
       .then(async (response) => {
         const result = await response.data.results[0].urls.full;
-        console.log(result);
         resolve(result);
       });
   });
