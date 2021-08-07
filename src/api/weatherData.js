@@ -24,7 +24,7 @@ export async function getCurrentWeather(location) {
 export async function getFiveDayForecast(location) {
   let options = {
     method: 'GET',
-    url: 'https://community-open-weather-map.p.rapidapi.com/forecast',
+    url: 'https://community-open-weather-map.p.rapidapi.com/forecast/daily',
     params: { q: location, units: 'imperial' },
     headers: {
       'x-rapidapi-key': API_KEY,
@@ -32,7 +32,7 @@ export async function getFiveDayForecast(location) {
     },
   };
   return new Promise(async (resolve, reject) => {
-    axios.request(options).then((response) => resolve(response));
+    axios.request(options).then((response) => resolve(response.data));
   });
 }
 
@@ -52,6 +52,6 @@ export async function searchByCity(city) {
     },
   };
   return new Promise(async (resolve, reject) => {
-    axios.request(options).then((response) => resolve(response));
+    axios.request(options).then((response) => resolve(response.data));
   });
 }

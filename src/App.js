@@ -5,14 +5,13 @@ import { getCurrentWeather, getFiveDayForecast } from './api/weatherData';
 import { getCityAndRegion } from './api/ipAddressData';
 import InfoBar from './components/infobar/InfoBar';
 import Dashboard from './components/dashboard/Dashboard';
-import day from './assets/day.jpg';
-import night from './assets/night.jpg';
 import { getImage } from './api/imageData';
 import ForecastModal from './components/forecastModal/ForecastModal';
 
 const currentTime = new Date().getHours();
 const App = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
+  const [fiveDayForecast, setFiveDayForecast] = useState(null);
   const [location, setLocation] = useState('');
   const [isDay, setIsDay] = useState(null);
   const [url, setUrl] = useState('');
@@ -26,6 +25,8 @@ const App = () => {
       setLocation(city);
       const currentWeather = await getCurrentWeather(city);
       setCurrentWeather(currentWeather.data);
+      const forecast = await getFiveDayForecast(city);
+      setFiveDayForecast(forecast);
     };
     getAllData();
   }, []);
@@ -33,6 +34,8 @@ const App = () => {
     const getAllData = async () => {
       const currentWeather = await getCurrentWeather(location);
       setCurrentWeather(currentWeather.data);
+      const forecast = await getFiveDayForecast(location);
+      setFiveDayForecast(forecast);
     };
     getAllData();
   }, [location]);
@@ -40,9 +43,11 @@ const App = () => {
   useEffect(() => {
     if (currentWeather) {
       if (isDay) {
-        getImage(currentWeather.weather[0].main + ', day').then((response) => {
-          setUrl(response);
-        });
+        getImage(currentWeather.weather[0].main + ', weather, day').then(
+          (response) => {
+            setUrl(response);
+          }
+        );
       } else if (!isDay) {
         getImage(currentWeather.weather[0].main + ', night').then(
           (response) => {
@@ -67,6 +72,7 @@ const App = () => {
         <ForecastModal
           setForeCastModalOpen={setForeCastModalOpen}
           location={location}
+          fiveDayForecast={fiveDayForecast}
         />
       )}
     </div>

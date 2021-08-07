@@ -3,8 +3,6 @@ import { getDate } from '../../util/utilFunctions';
 import './Dashboard.css';
 
 const Dashboard = ({ currentWeather, isDay }) => {
-  const weatherIcon = currentWeather ? currentWeather.weather[0].icon : null;
-
   const condition = currentWeather && currentWeather.weather[0].main;
 
   return (
@@ -49,6 +47,8 @@ const Dashboard = ({ currentWeather, isDay }) => {
             ) : condition === 'Mist' ? (
               <i class='fas fa-smog' style={{ opacity: 1 }}></i>
             ) : condition === 'Dust' ? (
+              <i class='fas fa-smog' style={{ opacity: 1 }}></i>
+            ) : condition === 'Smoke' ? (
               <i class='fas fa-smog' style={{ opacity: 1 }}></i>
             ) : condition === 'Clouds' && isDay ? (
               <i class='fas fa-cloud' style={{ opacity: 1 }}></i>

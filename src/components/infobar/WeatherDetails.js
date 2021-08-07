@@ -40,7 +40,7 @@ const WeatherDetails = ({ currentWeather, setForeCastModalOpen }) => {
           style={{
             cursor: 'pointer',
             textDecoration: 'underline',
-            color: '#4cc9f0',
+            color: '#a3cef1',
           }}
           onClick={() => setForeCastModalOpen((current) => !current)}>
           Future forecast
