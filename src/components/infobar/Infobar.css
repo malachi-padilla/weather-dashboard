@@ -1,16 +1,26 @@
-.InfoBarContainer {
+.info-bar-container {
   height: 100vh;
   width: 40%;
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.384);
-  padding-bottom: 2rem;
+  padding: 10px;
 }
 
 .divider {
   height: 1px;
   align-self: center;
   width: 85%;
-  background-color: #afd0e3;
+  background-color: #e1eaf0;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
+
+@media only screen and (max-width: 1024px) {
+  .info-bar-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+} ;
