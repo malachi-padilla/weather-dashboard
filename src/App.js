@@ -56,7 +56,7 @@ const App = () => {
         );
       }
     }
-  }, [currentWeather]);
+  }, [currentWeather, isDay]);
 
   return (
     <div className='mainContainer'>

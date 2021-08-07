@@ -1,5 +1,5 @@
 import React from 'react';
-import './InfoBar.css';
+import './Infobar.css';
 import Search from './Search';
 import WeatherDetails from './WeatherDetails';
 
