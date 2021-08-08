@@ -5,8 +5,8 @@
   box-sizing: border-box;
 }
 .mainContainer {
-  height: 100vh;
   display: flex;
+  height: 100vh;
   flex-direction: row;
   font-family: Roboto, 'sans-serif';
   overflow: hidden;
