@@ -12,12 +12,14 @@ const InfoBar = ({
   return (
     <div className='info-bar-container'>
       <Search setLocation={setLocation} location={location} />
-      <span className='divider'></span>
+      <div className='dividerContainer'>
+        <h3 className='title'>Weather details</h3>
+        <span className='divider'> </span>
+      </div>
       <WeatherDetails
         currentWeather={currentWeather}
         setForeCastModalOpen={setForeCastModalOpen}
       />
-      <span className='divider'></span>
     </div>
   );
 };

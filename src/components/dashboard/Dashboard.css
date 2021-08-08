@@ -26,15 +26,16 @@
 }
 
 .infoBox {
+  display: flex;
   height: 25%;
   width: 80%;
-  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   gap: 2rem;
   align-items: center;
   font-size: 48px;
   font-weight: 300;
+  text-shadow: 1px 1px 1px rgba(104, 104, 104, 0.26);
 }
 
 .info1 {
