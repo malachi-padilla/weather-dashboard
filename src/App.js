@@ -43,11 +43,9 @@ const App = () => {
   useEffect(() => {
     if (currentWeather) {
       if (isDay) {
-        getImage(currentWeather.weather[0].main + ', weather, day').then(
-          (response) => {
-            setUrl(response);
-          }
-        );
+        getImage(currentWeather.weather[0].main + ', sky').then((response) => {
+          setUrl(response);
+        });
       } else if (!isDay) {
         getImage(currentWeather.weather[0].main + ', night').then(
           (response) => {
