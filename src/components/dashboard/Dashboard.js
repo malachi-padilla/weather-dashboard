@@ -31,33 +31,59 @@ const Dashboard = ({ currentWeather, isDay }) => {
           </div>
           <div className='info3'>
             {condition === 'Thunderstorm' ? (
-              <i class='fas-fa-bolt' style={{ opacity: 1 }}></i>
+              <i
+                class='fas-fa-bolt'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Drizzle' ? (
-              <i class='fas fa-cloud-sun-rain' style={{ opacity: 1 }}></i>
+              <i
+                class='fas fa-cloud-sun-rain'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Rain' && isDay ? (
-              <i class='fas fa-cloud-showers-heavy' style={{ opacity: 1 }}></i>
+              <i
+                class='fas fa-cloud-showers-heavy'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Rain' && !isDay ? (
-              <i class='fas fa-cloud-moon-rain' style={{ opacity: 1 }}></i>
+              <i
+                class='fas fa-cloud-moon-rain'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Snow' ? (
-              <i class='fas fa-snowflake' style={{ opacity: 1 }}></i>
+              <i
+                class='fas fa-snowflake'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Haze' ? (
-              <i class='fas fa-smog' style={{ opacity: 1 }}></i>
+              <i
+                class='fas fa-smog'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Fog' ? (
-              <i class='fas fa-smog' style={{ opacity: 1 }}></i>
+              <i
+                class='fas fa-smog'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Mist' ? (
-              <i class='fas fa-smog' style={{ opacity: 1 }}></i>
+              <i
+                class='fas fa-smog'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Dust' ? (
-              <i class='fas fa-smog' style={{ opacity: 1 }}></i>
+              <i
+                class='fas fa-smog'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Smoke' ? (
-              <i class='fas fa-smog' style={{ opacity: 1 }}></i>
+              <i
+                class='fas fa-smog'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Clouds' && isDay ? (
-              <i class='fas fa-cloud' style={{ opacity: 1 }}></i>
+              <i
+                class='fas fa-cloud'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Clouds' && !isDay ? (
-              <i class='fas fa-cloud-moon'></i>
+              <i
+                class='fas fa-cloud-moon'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Clear' && isDay ? (
               <i class='far fa-sun' style={{ opacity: 1 }}></i>
             ) : condition === 'Clear' && !isDay ? (
-              <i class='far fa-moon' style={{ opacity: 1 }}></i>
+              <i
+                class='far fa-moon'
+                style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : null}
             <span className='subInfo'>{condition}</span>
           </div>
