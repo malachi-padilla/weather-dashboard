@@ -8,6 +8,7 @@
   background-color: rgba(0, 0, 0, 0.384);
   z-index: 10;
   position: absolute;
+  overflow-y: hidden;
 }
 
 .titleBar {
@@ -49,6 +50,7 @@
   align-items: center;
   gap: 1rem;
   padding: 2rem;
+  overflow: auto;
 }
 
 .forecastCard {
@@ -101,4 +103,19 @@
   flex-direction: row;
   width: 90%;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 1024px) {
+  .forecastModalContainer {
+    overflow: auto;
+  }
+
+  .forecastContainer {
+    overflow: auto;
+    flex-wrap: wrap;
+  }
+
+  .forecastCard {
+    width: 80%;
+  }
 }

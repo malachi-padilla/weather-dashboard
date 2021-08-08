@@ -21,12 +21,16 @@ const Search = ({ setLocation, location }) => {
     loading,
   }) => (
     <div className='inputContainer'>
-      <input
-        {...getInputProps({
-          placeholder: 'Another Location',
-          className: 'searchInput',
-        })}
-      />
+      <div className='inputWrapper'>
+        <i class='fas fa-search'></i>
+        <input
+          {...getInputProps({
+            placeholder: 'Search',
+            className: 'searchInput',
+          })}
+        />
+      </div>
+
       <div className='suggestionsContainer'>
         {loading && '...Loading'}
         {suggestions.map((suggestion) => {
@@ -50,11 +54,7 @@ const Search = ({ setLocation, location }) => {
           searchOptions={searchOptions}>
           {renderFunc}
         </PlacesAutocomplete>
-        <div className='buttonContainer'>
-          <button className='searchBtn'>
-            <i class='fas fa-search'></i>
-          </button>
-        </div>
+        <div className='buttonContainer'></div>
       </div>
     </div>
   );

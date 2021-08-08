@@ -79,7 +79,9 @@ const Dashboard = ({ currentWeather, isDay }) => {
                 class='fas fa-cloud-moon'
                 style={{ opacity: 1, color: '#cfdbd5' }}></i>
             ) : condition === 'Clear' && isDay ? (
-              <i class='far fa-sun' style={{ opacity: 1 }}></i>
+              <i
+                class='far fa-sun'
+                style={{ opacity: 1, color: '#ffee99' }}></i>
             ) : condition === 'Clear' && !isDay ? (
               <i
                 class='far fa-moon'
