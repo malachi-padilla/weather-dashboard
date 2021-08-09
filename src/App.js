@@ -19,7 +19,7 @@ const App = () => {
   useEffect(() => {
     const getAllData = async () => {
       let ip = await publicIp.v4();
-      setIsDay(currentTime >= 6 && currentTime <= 17);
+      setIsDay(currentTime >= 6 && currentTime <= 18);
       const cityAndRegion = await getCityAndRegion(ip);
       const { city } = cityAndRegion;
       setLocation(city);
