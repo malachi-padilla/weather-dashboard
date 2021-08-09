@@ -61,9 +61,16 @@
   height: 80%;
   width: 20%;
   background-color: rgb(189, 189, 189, 0.5);
-  border-radius: 1rem;
+  border-radius: 8px;
   color: rgb(231, 231, 231);
   padding: 1rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.forecastCard:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.151);
 }
 
 .cardTitle {

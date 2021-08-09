@@ -10,7 +10,7 @@
   flex-direction: row;
   font-family: Roboto, 'sans-serif';
   overflow: hidden;
-  background-color: transparent;
+  background: transparent;
 }
 
 .backgroundImage {

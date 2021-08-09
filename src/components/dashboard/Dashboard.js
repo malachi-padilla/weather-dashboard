@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { getDate } from '../../util/utilFunctions';
 import './Dashboard.css';
 
 const Dashboard = ({ currentWeather, isDay }) => {
+  const [date, setDate] = useState(getDate());
+
+  useEffect(() => {
+    const timer = setInterval(() => setDate(getDate(), 1000));
+    return function cleanup() {
+      clearInterval(timer);
+    };
+  });
   const condition = currentWeather && currentWeather.weather[0].main;
 
   return (
@@ -12,7 +20,7 @@ const Dashboard = ({ currentWeather, isDay }) => {
           <div className='info1'>75 &#176;</div>
           <div className='info2'>
             <span>Los Angeles</span>
-            <span className='subInfo'>{getDate()}</span>
+            <span className='subInfo'>{}</span>
           </div>
           <div className='info3'>
             <i class='far fa-moon' style={{ opacity: 1 }}></i>
@@ -27,7 +35,7 @@ const Dashboard = ({ currentWeather, isDay }) => {
           </div>
           <div className='info2'>
             <span>{currentWeather.name}</span>
-            <span className='subInfo'>{getDate()}</span>
+            <span className='subInfo'>{date}</span>
           </div>
           <div className='info3'>
             {condition === 'Thunderstorm' ? (
