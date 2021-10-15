@@ -1,128 +1,132 @@
 .forecastModalContainer {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  flex-direction: column;
-  align-items: center;
-  backdrop-filter: blur(20px);
-  background-color: rgba(0, 0, 0, 0.384);
-  z-index: 10;
-  position: absolute;
-  overflow-y: hidden;
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	flex-direction: column;
+	align-items: center;
+	backdrop-filter: blur(20px);
+	background-color: rgba(0, 0, 0, 0.384);
+	z-index: 10;
+	position: absolute;
+	overflow-y: hidden;
 }
 
 .titleBar {
-  display: flex;
-  width: 100%;
-  height: 25%;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-end;
-  padding: 1rem;
-  align-self: start;
-  position: relative;
+	display: flex;
+	width: 100%;
+	height: 15%;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-end;
+	padding: 1rem;
+	align-self: start;
+	position: relative;
 }
 
 .exitBtn {
-  color: #bbbbbb;
-  font-size: 44px;
-  background: none;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  align-self: flex-start;
-  position: absolute;
-  left: 16px;
+	color: #bbbbbb;
+	font-size: 44px;
+	background: none;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	align-self: flex-start;
+	position: absolute;
+	left: 16px;
 }
 
 .forecastTitle {
-  color: #fff;
-  font-size: 50px;
-  font-weight: 400;
+	color: #fff;
+	font-size: 50px;
+	font-weight: 400;
 }
 
 .forecastContainer {
-  height: 75%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  padding: 2rem;
-  overflow: auto;
+	height: 85%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	padding: 2rem;
+	overflow: auto;
 }
 
 .forecastCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 80%;
-  width: 20%;
-  background-color: rgb(189, 189, 189, 0.5);
-  border-radius: 8px;
-  color: rgb(231, 231, 231);
-  padding: 1rem;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	min-height: 90%;
+	width: 30%;
+	background-color: rgb(189, 189, 189, 0.5);
+	border-radius: 8px;
+	color: rgb(231, 231, 231);
+	padding: 2rem;
+	gap: 1rem;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
 }
 
 .forecastCard:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.151);
+	box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+}
+
+.forecast-heading {
+	height: 15%;
+	display: flex;
 }
 
 .cardTitle {
-  font-size: 44px;
-  text-transform: capitalize;
-  font-weight: 400;
-  margin-bottom: 1rem;
+	font-size: 44px;
+	text-transform: capitalize;
+	font-weight: 400;
 }
 
 .conditionBar {
-  display: flex;
-  height: 15%;
-  flex-direction: row;
-  gap: 10px;
+	display: flex;
+	height: 15%;
+	flex-direction: row;
+	gap: 1rem;
 }
 
 .description {
-  font-size: 36px;
-  font-weight: 300;
+	font-size: 36px;
+	font-weight: 300;
 }
 
 .icon {
-  opacity: 0.5;
+	opacity: 0.5;
 }
 
 .infoContainer {
-  height: 70%;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+	height: 70%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
 }
 
 .infoBar {
-  display: flex;
-  flex-direction: row;
-  width: 90%;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	width: 90%;
+	justify-content: space-between;
 }
 
 @media only screen and (max-width: 1024px) {
-  .forecastModalContainer {
-    overflow: auto;
-  }
+	.forecastModalContainer {
+		overflow: auto;
+	}
 
-  .forecastContainer {
-    overflow: auto;
-    flex-wrap: wrap;
-  }
+	.forecastContainer {
+		overflow: auto;
+		flex-wrap: wrap;
+	}
 
-  .forecastCard {
-    width: 80%;
-  }
+	.forecastCard {
+		width: 100%;
+	}
 }
